@@ -15,7 +15,7 @@ class PostImagesController < ApplicationController
     end
   end
   def index
-    @post_images = PostImage.all
+    @post_images = PostImage.page(params[:page])
   end
 
   def show
@@ -37,4 +37,4 @@ class PostImagesController < ApplicationController
     params.require(:post_image).permit(:shop_name, :image, :caption)
   end
 
-end 
+end
